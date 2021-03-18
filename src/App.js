@@ -19,9 +19,13 @@ function App() {
     setCart([...cart, item])
 	};
 
+  const removeItem = itemId => {
+    setCart(cart.filter(item => item.id !== itemId))
+  }
+
 	return (
 		<ProductContext.Provider value={{ products, addItem }}>
-      <CartContext.Provider value={{ cart }}>
+      <CartContext.Provider value={{ cart, removeItem }}>
         <div className="App">
           <Navigation />
 
